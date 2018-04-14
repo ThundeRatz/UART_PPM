@@ -30,7 +30,7 @@ void setup() {
     ICR1   = 40000;
 
     DDRD &= ~(1 << PD2);
-    DDRB |=  (1 << PB1) | (1 << PB2);
+    DDRB |=  (1 << PB5) | (1 << PB6);
 
     EICRA = (1 << ISC00);
     EIMSK = (1 << INT0);

@@ -32,14 +32,14 @@ void setup() {
     DDRD &= ~(1 << PD2);
     DDRB |=  (1 << PB5) | (1 << PB6);
 
-    EICRA = (1 << ISC00);
-    EIMSK = (1 << INT0);
+    // EICRA = (1 << ISC00);
+    // EIMSK = (1 << INT0);
 
-    pinMode(led, OUTPUT);
+    // pinMode(led, OUTPUT);
 }
 
 void loop() {
-    if (auton >= 220 && Serial.available()) {
+    if (/*auton >= 220 && */ Serial.available()) {
         parse_speed();
         fail = 0;
     } else {
@@ -48,11 +48,11 @@ void loop() {
 
     if (fail > 100) {
         fail = 101;
-        digitalWrite(led, LOW);
+        // digitalWrite(led, LOW);
         vel_esq = vel_dir = 0;
         ppm_send(30, 0);
     } else {
-        digitalWrite(led, HIGH);
+        // digitalWrite(led, HIGH);
         ppm_send(vel_esq, vel_dir);
     }
 }
